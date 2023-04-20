@@ -9,14 +9,14 @@ app.get('/', (req,res) => {
     res.send('Test~!!!');
 })
 
-const connect = require('./schemas');
-connect();
-
 const postsRouter = require('./routes/posts');
 app.use('/posts', [postsRouter]);
 
 const commentsRouter = require('./routes/comments');
 app.use('/posts', [commentsRouter]);
+
+const connect = require('./schemas');
+connect();
 
 app.listen(port, () => {
     console.log(port, 'Port has opened!')
